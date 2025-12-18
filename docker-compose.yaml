@@ -1,0 +1,14 @@
+services:
+
+  tracktor:
+    image: ghcr.io/javedh-dev/tracktor:latest
+    container_name: tracktor
+    restart: unless-stopped
+    ports:
+      - "8200:3000"
+    volumes:
+      - ./tracktor-data:/data
+    environment:
+      - TRACKTOR_DEMO_MODE=false
+      - FORCE_DATA_SEED=false
+      - CORS_ORIGINS="http://localhost:8200"
